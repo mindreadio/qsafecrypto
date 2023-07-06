@@ -10,6 +10,10 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/mindreadio/qsafecrypto",
     packages=find_packages(),
+    install_requires=[
+        "based58>=0.1.1",
+        "pycryptodome>=3.17.0",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

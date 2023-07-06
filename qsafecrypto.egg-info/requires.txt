@@ -1,0 +1,2 @@
+based58>=0.1.1
+pycryptodome>=3.17.0

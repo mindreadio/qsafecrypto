@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: qsafecrypto
+Version: 1.0.0
+Summary: A secure and user-friendly open-source cryptography library, offering modern cryptographic APIs that are resistant to quantum attacks. Protect your data with ease and confidence using advanced quantum-resistant algorithms
+Home-page: https://github.com/mindreadio/qsafecrypto
+Author: Md Fazlul Karim
+Author-email: enterprise@mindread.io
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
