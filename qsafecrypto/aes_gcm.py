@@ -2,7 +2,7 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 import based58
 
-# KEY = 32 BYTES (27 BYTES: Original DEK, 5 Bytes: API Sequence Based )
+# KEY = 32 BYTES ()
 # NONCE = 12 BYTES
 # TAG = 16 BYTES
 
@@ -11,26 +11,25 @@ import based58
 # ASSOCIATED DATA - It could be anything
 
 
-def encrypt(payload, dek, salt, associated_data):
+def encrypt(payload, key, tag):
     """
     This will encrypt the JSON Object
       Args:
-        payload (string): The JSON
-        dek (string): The DEK
-        associated_data (string): Like Salt
-        salt (string): Comes from the api
+        payload (string): String which needs to be encrypted
+        key (string): The encryption key
+        tag (string): Like Salt
     Returns:
         string: Base58 encoded ciphertext.
     """
-    associated_data = associated_data.encode()
+    tag = tag.encode()
     data = payload.encode()
-    key = f'{dek}{salt}'.encode()
+    key = key.encode()
     # key = dek.encode() + salt.encode()
     nonce = get_random_bytes(12)
     # print(
-    #     "📣", f"DEK = {dek}, SALT = {salt}, key = {key}, associated_data = {associated_data}, nonce = {nonce}")
+    #     "📣", f"DEK = {dek}, SALT = {salt}, key = {key}, tag = {tag}, nonce = {nonce}")
     cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
-    cipher.update(associated_data)
+    cipher.update(tag)
     ciphertext, tag = cipher.encrypt_and_digest(data)
 
     raw = nonce+ciphertext+tag
@@ -39,19 +38,18 @@ def encrypt(payload, dek, salt, associated_data):
     return result
 
 
-def decrypt(payload, dek, salt, associated_data):
+def decrypt(payload, key, tag):
     """
     This will encrypt the JSON Object
       Args:
-        payload (string): The JSON
-        dek (string): The DEK
-        associated_data (string): Like Salt
-        salt (string): Comes from the api
+        payload (string): Encrypted string
+        key (string): The encryption key
+        tag (string): Like Salt
     Returns:
         string: Decrypted ciphertext.
     """
-    associated_data = associated_data.encode()
-    key = f'{dek}{salt}'.encode()
+    tag = tag.encode()
+    key = key.encode()
 
     byte_convert = based58.b58decode(payload)
     
@@ -60,7 +58,7 @@ def decrypt(payload, dek, salt, associated_data):
     r_tag = byte_convert[-16:]  # Real Tag
 
     cipher = AES.new(key, AES.MODE_GCM, nonce=r_nonce)
-    cipher.update(associated_data)
+    cipher.update(tag)
     plaintext = cipher.decrypt_and_verify(r_ciphertext, r_tag)
     return plaintext
 

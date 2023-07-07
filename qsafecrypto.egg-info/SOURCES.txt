@@ -1,8 +1,11 @@
 README.md
 setup.py
 qsafecrypto/__init__.py
+qsafecrypto/aes_gcm.py
 qsafecrypto.egg-info/PKG-INFO
 qsafecrypto.egg-info/SOURCES.txt
 qsafecrypto.egg-info/dependency_links.txt
 qsafecrypto.egg-info/requires.txt
 qsafecrypto.egg-info/top_level.txt
+tests/__init__.py
+tests/test_crypto.py
