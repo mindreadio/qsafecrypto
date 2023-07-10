@@ -1,5 +1,5 @@
-build/
-dist/
+# build/
+# dist/
 qsafecrypto.egg-info/
 .cpython-311.pyc
 qsafecrypto/__pycache__/
