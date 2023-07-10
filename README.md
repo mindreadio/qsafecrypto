@@ -27,13 +27,13 @@ payload = "Hello, world!"
 
 key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # 32-byte-key for example - random.key_generate(length=32)
 
-verification_key = "myappnameaskey" # You can generate one random.key_generate(length=16) Length doesn't matter. Shorter = Faster
+verification_key = "myappnameaskey" # Length & uniqueness doesn't matter.
 
-encrypted_data = aes_gcm_256.encrypt(payload, key, verification_key)
+encrypted_payload = aes_gcm_256.encrypt(payload, key, verification_key)
 
-print("Encrypted payload:", encrypted_data)
+print("Encrypted payload:", encrypted_payload)
 
-# Encrypted ciphertext: Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje
+# Encrypted payload: Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje
 ```
 
 The `encrypt` function takes the payload, encryption key, and verification key as arguments. By default, it returns the encrypted ciphertext as a string. You can set the `decode` parameter to `False` to receive the ciphertext as bytes.
