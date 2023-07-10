@@ -3,7 +3,6 @@ from Crypto.Random import get_random_bytes
 import based58
 
 # AES has never been cracked yet and it would take large amounts of computational power to crack this key.
-# https://www.appsealing.com/aes-128-encryption/#:~:text=A%20machine%20that%20can%20crack,power%20to%20crack%20this%20key.
 
 def encrypt(payload, key, verification_key, decode=True):
     """
@@ -72,20 +71,3 @@ def decrypt(payload, key, verification_key, decode=True):
     else:
         return AES.new(key.encode(), AES.MODE_GCM, nonce=byte_convert[0:12]).update(verification_key.encode()).decrypt_and_verify(byte_convert[12:-16], byte_convert[-16:])
 
-
-def generate_random_key(length=32):
-    """
-    Generate a random encryption key.
-
-    Args:
-        length (int): Length of the random key desired.
-
-    Returns:
-        str: A random encryption key.
-
-    Note:
-        Generates a secure random key.
-    """
-    random_bytes = get_random_bytes(length)
-    random_key = based58.b58encode(random_bytes).decode()[:length]
-    return random_key
