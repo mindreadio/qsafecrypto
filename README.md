@@ -72,4 +72,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://github.com/mindreadio/qsafecrypto/LICENSE)
+[MIT](https://github.com/mindreadio/qsafecrypto/blob/main/LICENSE)
