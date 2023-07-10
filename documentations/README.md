@@ -1,10 +1,4 @@
-# QSafeCrypto
 
-QSafeCrypto is a Python package that provides encryption and decryption functions using AES-GCM-256, a quantum-safe encryption algorithm.
-
-## Documentation
-
-Find more in the - [Documentations](https://github.com/mindreadio/qsafecrypto/blob/main/documentations) 🧮
 
 ## Installation
 
@@ -66,15 +60,3 @@ The `decrypt` function takes the ciphertext, decryption key, and verification ke
 - AES-GCM-256 is used for encryption and decryption, as it is considered quantum-safe.
 - Ensure that the same key and verification key used during encryption are provided for successful decryption.
 - AES-GCM-192 and AES-GCM-128 are not supported by choice.
-
-## Contribution
-
-🧵 This package is developed by [Md Fazlul Karim](https://www.linkedin.com/in/fazlulkarimweb/), co-founder of Mindread.io. Special thanks to him for his valuable contributions to this project.
-
-If you would like to contribute to this project, please feel free to submit a pull request or open an issue. We welcome any suggestions, bug reports, or enhancements.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://github.com/mindreadio/qsafecrypto/blob/main/LICENSE)
