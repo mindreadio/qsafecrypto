@@ -1,8 +1,7 @@
 import unittest
-# from Crypto.Cipher import AES
 from qsafecrypto import aes_gcm_256, random
 
-# Running tests python -m unittest discover tests
+# Running tests: python -m unittest discover tests
 
 class CryptoTestCase(unittest.TestCase):
     def setUp(self):
