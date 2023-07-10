@@ -15,7 +15,7 @@ pip install qsafecrypto
 Import the `encrypt` and `decrypt` functions from the QSafeCrypto package:
 
 ```python
-from qsafecrypto.aes_gcm_256 import encrypt, decrypt # Imported AES_GCM_256 algorithoms encryption and decryption 
+from qsafecrypto.aes_gcm_256 import encrypt, decrypt # Imported AES_GCM_256 algorithoms for encrypting and decrypting
 from qsafecrypto.random import key_generate # Imported support for generating random key
 ```
 
@@ -49,6 +49,7 @@ Decrypt a encrypted_data using AES-GCM-256 decryption:
 # verification_key = "myappnameaskey"
 
 decrypted_data = decrypt(encrypted_data, key, verification_key)
+
 print("Decrypted data:", decrypted_data)
 
 # Decrypted data: "Hello, world!"
@@ -62,6 +63,13 @@ The `decrypt` function takes the ciphertext, decryption key, and verification ke
 - Ensure that the same key and verification key used during encryption are provided for successful decryption.
 - AES-GCM-192 and AES-GCM-128 are not supported by choice.
 
----
+## Contributing
 
-Feel free to customize the README file to add more details, such as additional examples, usage guidelines, or any other relevant information about your QSafeCrypto package.
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://github.com/mindreadio/qsafecrypto/LICENSE)
