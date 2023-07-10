@@ -1,5 +1,3 @@
-
-
 # QSafeCrypto
 
 QSafeCrypto is a Python package that provides encryption and decryption functions using AES-GCM-256, a quantum-safe encryption algorithm.
@@ -33,7 +31,7 @@ verification_key = "myapp" # You can generate one aes_gcm_256.generate_random_ke
 
 encrypted_data = aes_gcm_256.encrypt(payload, key, verification_key)
 
-print("Encrypted ciphertext:", encrypted_data)
+print("Encrypted payload:", encrypted_data)
 
 # Encrypted ciphertext: nbsjJN2k9o9A1ETFHKvhzk38dnujSF45cq8fn3ozadt9dTWuTfrPaBu8
 ```
@@ -42,17 +40,17 @@ The `encrypt` function takes the payload, encryption key, and verification key a
 
 ### Decryption
 
-Decrypt a ciphertext using AES-GCM-256 decryption:
+Decrypt a encrypted_payload using AES-GCM-256 decryption:
 
 ```python
-ciphertext = "nbsjJN2k9o9A1ETFHKvhzk38dnujSF45cq8fn3ozadt9dTWuTfrPaBu8"
+encrypted_payload = "nbsjJN2k9o9A1ETFHKvhzk38dnujSF45cq8fn3ozadt9dTWuTfrPaBu8"
 key = "BSKAkccJe1nFCLdKEt3SupKonqZVWrCt"
 verification_key = "myapp"
 
-decrypted_data = decrypt(ciphertext, key, verification_key)
-print("Decrypted plaintext:", decrypted_data)
+decrypted_data = decrypt(encrypted_payload, key, verification_key)
+print("Decrypted payload:", decrypted_data)
 
-# Decrypted plaintext: "Hello, world!"
+# Decrypted payload: "Hello, world!"
 ```
 
 The `decrypt` function takes the ciphertext, decryption key, and verification key as arguments. By default, it returns the decrypted plaintext as a string. Setting the `decode` parameter to `False` will return the plaintext as bytes.

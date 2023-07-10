@@ -1,6 +1,6 @@
 import unittest
 # from Crypto.Cipher import AES
-from qsafecrypto.aes_gcm_256 import encrypt, decrypt, generate_random_key
+from qsafecrypto import aes_gcm_256, generate_random_key
 
 # Running tests python -m unittest discover tests
 
@@ -14,14 +14,14 @@ class CryptoTestCase(unittest.TestCase):
         self.length = 32
 
     def test_encrypt_decrypt(self):
-        encrypted_payload = encrypt(self.payload, self.key, self.verification_key, self.decode)
+        encrypted_payload = aes_gcm_256.encrypt(self.payload, self.key, self.verification_key, self.decode)
         print("encrypted_payload", encrypted_payload)
-        decrypted_payload = decrypt(encrypted_payload, self.key, self.verification_key, self.decode)
+        decrypted_payload = aes_gcm_256.decrypt(encrypted_payload, self.key, self.verification_key, self.decode)
         print("decrypted_payload", decrypted_payload)
         self.assertEqual(decrypted_payload, self.payload)
 
     def test_aes_gcm_invalid_decrypt(self):
-        encrypted_payload = encrypt(self.payload, self.key, self.verification_key, self.decode)
+        encrypted_payload = aes_gcm_256.encrypt(self.payload, self.key, self.verification_key, self.decode)
         # Modify the DEK to simulate an invalid decryption
         invalid_key = "XySwog4xDGfhAw2rZH2IEZMKIWpKTZcM"
         
