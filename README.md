@@ -2,6 +2,41 @@
 
 QSafeCrypto is a Python package that provides encryption and decryption functions using AES-GCM-256, a quantum-safe encryption algorithm.
 
+### Why QSafeCrypto?
+
+Cryptography is easy to implement but challenging to implement properly. There are only a few correct ways to do it, but many ways to make mistakes. Additionally, the threat of quantum computers is becoming increasingly evident. Quantum computers have the potential to decipher most existing encryptions through sheer computing power. In this new brave world, we must be prepared. It's time to adopt quantum-safe encryption everywhere, from databases to user confidential information. Everything needs to be encrypted.
+
+Brilliant minds in the world have developed algorithms that are deemed safe against quantum computers for the foreseeable future. AES-GCM-256 is one such algorithm.
+
+This is why QSafeCrypto embarks on its journey. Although we started with only one algorithm, our goal is to expand our algorithm list.
+
+### Why I built QSafeCrypto or reinvented the wheel?
+
+A few years ago, when I started coding for my startup, Mindread.io, I quickly realized the necessity of using an encryption algorithm to secure customer data. However, I found it very challenging to use existing solutions. Extensive theoretical knowledge was required, and another popular solution, Pycryptodome, also had its complications.
+
+During my research, I discovered the Google TINK cryptography library, which was incredibly helpful. However, it still involved substantial theoretical understanding and installation hurdles. Additionally, there was a potential vendor lock-in risk. Most of the time, developers had to be knowledgeable about what they were doing.
+
+Finally, I made the difficult decision to build QSafeCrypto from scratch. Since then, the library has been used in production and has successfully encrypted millions of bytes of data with lower latency and improved ease of use. Now, as a time-tested program, I wanted to make it open source.
+
+### What is the idea and requirement?
+
+The idea is quite simple, but I have four specific requirements:
+
+1. The library must include two functions: one for encryption and another for decryption.
+2. A key will be necessary, stored either in the environment variable or in the Key Management System (KMS), which will be used for encryption and decryption.
+3. The library must be performant and quantum-safe.
+4. It should be designed in a way that even developers cannot easily make errors. Additionally, it should have an aesthetically pleasing appearance.
+
+### How I distilled all the complexities, theories, and parameters into two simple functions?
+
+I drew inspiration from Google Tink and followed best practices while adhering to my four golden requirements. I did not deviate from them.
+
+For example, in AES-GCM-256, each operation requires a unique "nonce" key that must be remembered and provided for decryption. To simplify this process, I merged it with the encrypted key and later extracted the relevant portion when needed.
+
+Secondly, there must be associated data or tags for verification. By merging this data, we can easily verify if the data is from the original source or not.
+
+Lastly, base64 encoded data can be visually unappealing, often including trailing equal signs. To address this, I made the key base58 encoded, resembling a Bitcoin wallet address. This visual enhancement is pleasing to the eye.
+
 ## Documentation
 
 Find more in the - [Documentations](https://github.com/mindreadio/qsafecrypto/blob/main/documentations) 🧮
