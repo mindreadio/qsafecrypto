@@ -1,7 +1,7 @@
 from Crypto.Random import get_random_bytes
 import based58
 
-def generate_random_key(length=32):
+def key_generate(length=32):
     """
     Generate a random encryption key.
 

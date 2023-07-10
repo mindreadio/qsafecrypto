@@ -1,6 +1,6 @@
 import unittest
 # from Crypto.Cipher import AES
-from qsafecrypto import aes_gcm_256, generate_random_key
+from qsafecrypto import aes_gcm_256, random
 
 # Running tests python -m unittest discover tests
 
@@ -8,8 +8,8 @@ class CryptoTestCase(unittest.TestCase):
     def setUp(self):
         # Generate random values for testing
         self.payload = "Hello, world!"
-        self.key = generate_random_key(length=32) # 32-byte-key like - BSKAkccJe1nFCLdKEt3SupKonqZVWrCt
-        self.verification_key = generate_random_key(length=16)
+        self.key = random.key_generate(length=32) # 32-byte-key like - BSKAkccJe1nFCLdKEt3SupKonqZVWrCt
+        self.verification_key = "myappnameaskey" # random.key_generate(length=16)
         self.decode = True
         self.length = 32
 
@@ -26,10 +26,10 @@ class CryptoTestCase(unittest.TestCase):
         invalid_key = "XySwog4xDGfhAw2rZH2IEZMKIWpKTZcM"
         
         with self.assertRaises(ValueError):
-            decrypt(encrypted_payload, invalid_key, self.verification_key, self.decode)
+            aes_gcm_256.decrypt(encrypted_payload, invalid_key, self.verification_key, self.decode)
             
-    def test_aes_gcm_generate_random_key(self):
-        generated_random_encryption_key = generate_random_key(self.length)
+    def test_aes_gcm_random_key_generate(self):
+        generated_random_encryption_key = random.key_generate(self.length)
         print("A random key", generated_random_encryption_key)
         print("Random key length", len(generated_random_encryption_key))
         self.assertEqual(len(generated_random_encryption_key), self.length)

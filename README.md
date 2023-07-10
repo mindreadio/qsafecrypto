@@ -15,7 +15,7 @@ pip install qsafecrypto
 Import the `encrypt` and `decrypt` functions from the QSafeCrypto package:
 
 ```python
-from qsafecrypto import aes_gcm_256
+from qsafecrypto import aes_gcm_256, random
 ```
 
 ### Encryption
@@ -25,15 +25,15 @@ Encrypt a payload using AES-GCM-256 encryption:
 ```python
 payload = "Hello, world!"
 
-key = "BSKAkccJe1nFCLdKEt3SupKonqZVWrCt" # 32-byte-key for example - aes_gcm_256.generate_random_key(length=32)
+key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # 32-byte-key for example - random.key_generate(length=32)
 
-verification_key = "myapp" # You can generate one aes_gcm_256.generate_random_key(length=16) Length doesn't matter. Shorter = Faster
+verification_key = "myappnameaskey" # You can generate one random.key_generate(length=16) Length doesn't matter. Shorter = Faster
 
 encrypted_data = aes_gcm_256.encrypt(payload, key, verification_key)
 
 print("Encrypted payload:", encrypted_data)
 
-# Encrypted ciphertext: nbsjJN2k9o9A1ETFHKvhzk38dnujSF45cq8fn3ozadt9dTWuTfrPaBu8
+# Encrypted ciphertext: Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje
 ```
 
 The `encrypt` function takes the payload, encryption key, and verification key as arguments. By default, it returns the encrypted ciphertext as a string. You can set the `decode` parameter to `False` to receive the ciphertext as bytes.
@@ -43,9 +43,9 @@ The `encrypt` function takes the payload, encryption key, and verification key a
 Decrypt a encrypted_payload using AES-GCM-256 decryption:
 
 ```python
-encrypted_payload = "nbsjJN2k9o9A1ETFHKvhzk38dnujSF45cq8fn3ozadt9dTWuTfrPaBu8"
-key = "BSKAkccJe1nFCLdKEt3SupKonqZVWrCt"
-verification_key = "myapp"
+encrypted_payload = "Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje"
+key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh"
+verification_key = "myappnameaskey"
 
 decrypted_data = decrypt(encrypted_payload, key, verification_key)
 print("Decrypted payload:", decrypted_data)
