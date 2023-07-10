@@ -31,7 +31,7 @@ The idea is quite simple, but I have four specific requirements:
 
 I drew inspiration from Google Tink and followed best practices while adhering to my four golden requirements. I did not deviate from them.
 
-For example, in AES-GCM-256, each operation requires a unique "nonce" key that must be remembered and provided for decryption. To simplify this process, I merged it with the encrypted key and later extracted the relevant portion when needed.
+For example, in AES-GCM-256, each operation requires a unique "nonce" key that must be remembered and provided for decryption. To simplify this process, I generate one on the fly and merged it with the encrypted key and later extracted the relevant portion when needed. Developers didn't need to do anything with `nonce` let alone decide the perfect byte sizes for the `nonce` key. Thanks to Google TINK team for the idea.
 
 Secondly, there must be associated data or tags for verification. By merging this data, we can easily verify if the data is from the original source or not. I merged it in the key too. Later picked it to verify the key.
 
