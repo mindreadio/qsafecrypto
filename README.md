@@ -33,9 +33,9 @@ I drew inspiration from Google Tink and followed best practices while adhering t
 
 For example, in AES-GCM-256, each operation requires a unique "nonce" key that must be remembered and provided for decryption. To simplify this process, I merged it with the encrypted key and later extracted the relevant portion when needed.
 
-Secondly, there must be associated data or tags for verification. By merging this data, we can easily verify if the data is from the original source or not.
+Secondly, there must be associated data or tags for verification. By merging this data, we can easily verify if the data is from the original source or not. I merged it in the key too. Later picked it to verify the key.
 
-Lastly, base64 encoded data can be visually unappealing, often including trailing equal signs. To address this, I made the key base58 encoded, resembling a Bitcoin wallet address. This visual enhancement is pleasing to the eye.
+Lastly, base64 encoded data can be visually unappealing, often including trailing equal signs. To address this, I made the key base58 encoded, resembling a Bitcoin wallet address. This visual enhancement is pleasing to the eye. No trailing equal signs.
 
 ## Documentation
 
