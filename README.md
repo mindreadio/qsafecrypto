@@ -54,8 +54,8 @@ pip install qsafecrypto
 Import the `encrypt` and `decrypt` functions from the QSafeCrypto package:
 
 ```python
-from qsafecrypto.aes_gcm_256 import encrypt, decrypt # Imported AES_GCM_256 algorithoms for encrypting and decrypting
-from qsafecrypto.random import key_generate # Imported support for generating random key
+from qsafecrypto.aes_gcm_256 import encrypt, decrypt
+from qsafecrypto import util 
 ```
 
 ### Encryption
@@ -65,7 +65,7 @@ Encrypt a payload using AES-GCM-256 encryption:
 ```python
 data = "Hello, world!"
 
-key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # 32-byte-key for example - key_generate(length=32)
+key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # 32-byte-key for example - util.random_key_generate(length=32)
 
 verification_key = "myappnameaskey" # Length & uniqueness doesn't matter.
 

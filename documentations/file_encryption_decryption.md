@@ -1,6 +1,6 @@
-# You can decrypt any file or image with quantam safe guarantee
+# You can decrypt any file with quantam safe guarantee
 
-This example shows how to encrypt and decrypt a file or image using the QSafeCrypto library.
+This example shows how to encrypt and decrypt a file using the QSafeCrypto library.
 
 ## Importing the libraries
 
