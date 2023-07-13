@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="qsafecrypto",
-    version="1.0.0",
+    version="1.0.1",
     author="Md Fazlul Karim",
     author_email="fazlulkarimrocky@gmail.com",
     description="A secure and user-friendly open-source cryptography library, offering modern cryptographic APIs that are resistant to quantum attacks. Protect your data with ease and confidence using advanced quantum-resistant algorithms",
@@ -15,8 +15,9 @@ setup(
         "pycryptodome>=3.17.0",
     ],
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    python_requires=">=3.7",
 )
