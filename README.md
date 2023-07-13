@@ -1,7 +1,9 @@
+![Qsafecrypto Logo](https://github.com/mindreadio/qsafecrypto/blob/main/documentations/qsafecrypto_logo.png)
+
+
 # QSafeCrypto
 
 QSafeCrypto is a Python package that provides encryption and decryption functions using AES-GCM-256, a quantum-safe encryption algorithm.
-![Qsafecrypto Logo](https://github.com/mindreadio/qsafecrypto/blob/main/documentations/qsafecrypto_logo.png)
 
 ## Documentation
 
