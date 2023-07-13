@@ -139,10 +139,23 @@ Overall, my implementation simplifies the handling of nonces and associated data
 
 On the other hand to enhance visual appeal, I transformed the key into base58 encoding, resembling a crypto wallet address. This eliminates trailing equal signs commonly found in base64 encoded data. The process relies on a RUST-based library for efficient base58 encoding. Enjoy a visually pleasing key representation without any trailing equal signs.
 
-For example:
-Same 
-BASE58 = `Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje`
-BASE64 = `KVx4OTJjXHgwM1xuhjMFx4ZmJceGMwXHhlZUxceGNidVBceDhXHhYQ==`
+As an example, let's compare the base58 and base64 versions of the same encryption:
+
+Base58: `s6xFAQPiTDxf97Pw9dtdyUuyWYqD8MiiJAyyo5inSk5zVWm6ifgCDP2`
+Base64: `A/Ba6xs3S2lhowPdCdJOsTf+Mv6gt16jhTAfcfG3LfJNJFZep/NkYFU=`
+
+### Why our encrypted data is designed to be human-friendly
+
+Base58 is chosen over base64 for its human-friendly representation. The decision to prioritize human-friendliness led to the selection of base58 encoding over base64.
+
+1. `Human-friendly representation`: Base58 encoding uses a character set that excludes visually similar characters, making it more human-friendly. It avoids ambiguous characters like "0", "O", "I", and "l" that can easily be mistaken for each other. This makes base58 encoding suitable for scenarios where the encoded data needs to be read or communicated by humans, such as in crypto wallet addresses or other user-facing contexts. Qsafecrypto sees a future where every app, interaction is encrypted. So user will see lots of encrypted data in their app.
+
+2. `Compact representation`: Base58 encoding typically results in a shorter encoded string compared to base64 encoding. By excluding certain characters, base58 achieves a more compact representation, which can be beneficial when dealing with limited space or optimizing data storage. This can be advantageous in scenarios where shorter identifiers or representations are preferred.
+
+3. `Padding-free`: Base58 encoding does not require padding, as opposed to base64 encoding which uses padding characters ("=") to ensure a length divisible by 4. The absence of padding simplifies the handling and manipulation of the encoded data, making base58 more convenient in certain applications.
+
+
+At Qsafecrypto, we envision a future where encryption is ubiquitous, ensuring secure interactions within every application. In this future, users will encounter abundant encrypted data in their apps. Therefore, `human-friendliness is of utmost importance in our design philosophy`. We strive to create visually pleasing and user-friendly encrypted keys. `Leveraging a high-performance base58 encoder-decoder implemented in Rust, we ensure that aesthetic appeal does not come at the cost of performance. With Qsafecrypto, enjoy the perfect blend of security and user-centric design.`
 
 ## Contribution
 
