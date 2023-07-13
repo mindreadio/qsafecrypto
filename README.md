@@ -3,7 +3,7 @@
 
 # QSafeCrypto
 
-QSafeCrypto is a Python package that provides encryption and decryption functions using AES-GCM-256, a quantum-safe encryption algorithm.
+Utilizing cryptography in your application shouldn't be an intimidating and challenging task. Lets simplify cryptography in your app with QSafeCrypto. It offers easy AES-GCM-256 encryption and decryption, ensuring quantum-safe security.
 
 ## Documentation
 
@@ -33,7 +33,7 @@ Encrypt a payload using AES-GCM-256 encryption:
 ```python
 data = "Hello, world!"
 
-key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # 32-byte-key for example - util.random_key_generate(length=32)
+key = "8A6KcShDcvd1jbTBBuTKQupizA7xGivh" # A 32-byte-key. To generate one use util.random_key_generate(length=32)
 
 verification_key = "myappnameaskey" # Length & uniqueness doesn't matter.
 
@@ -81,8 +81,6 @@ Example and usage : [File Encryption & Decryption](https://github.com/mindreadio
 - AES-GCM-192 and AES-GCM-128 are not supported by choice.
 
 
-
-
 ### Why QSafeCrypto?
 
 Cryptography is easy to implement but challenging to implement properly. There are only a few correct ways to do it, but many ways to make mistakes. Additionally, the threat of quantum computers is becoming increasingly evident. Quantum computers have the potential to decipher most existing encryptions through sheer computing power. In this new brave world, we must be prepared. It's time to adopt quantum-safe encryption everywhere, from databases to user confidential information. Everything needs to be encrypted.
@@ -120,26 +118,31 @@ I had four requirements for developing it. I followed them religiously.
 3. The library must be performant and quantum-safe.
 4. It should be designed in a way that even developers cannot easily make errors. Additionally, the encrypted keys should have an aesthetically pleasing appearance.
 
-I chose AES-GCM-256 for five reasons as well:
+I chose AES-GCM-256 for four reasons as well:
 
-1. It's never been cracked yet.
+1. It's never been cracked while being quantum-safe!
 2. Companies like Signal are using it in their chatting app. Google's Tink library also chooses this algorithm. Big tech are 3. already using it. There is enough social proof.
 3. It's fast because there is chip-level support provided by major vendors for this particular algorithm.
 4. There is already a supporting Python library with first-class support.
-5. It's quantum-safe.
 
 Use it to get quantum-safe encryption and decryption from today, easily.
 
 ### How I distilled all the complexities, theories, and parameters into two simple functions?
 
-I drew inspiration from Google Tink and followed best practices while adhering to my four golden requirements. I did not deviate from them.
+I took inspiration from Google Tink and followed best practices, sticking to my four core requirements without compromise.
 
-For example, in AES-GCM-256, each operation requires a unique "nonce" key that must be remembered and provided for decryption. To simplify this process, I generate one on the fly and merged it with the encrypted key and later extracted the relevant portion when needed. Developers didn't need to do anything with `nonce` let alone decide the perfect byte sizes for the `nonce` key. Thanks to Google TINK team for the idea.
+For AES-GCM-256, each operation requires a unique "nonce" key for decryption. To simplify this, I dynamically generate the nonce and merge it with the encrypted key. Developers are relieved from handling the nonce or determining its byte sizes. This approach, inspired by Google TINK, streamlines the process.
 
-Secondly, there must be associated data or tags for verification. By merging this data, we can easily verify if the data is from the original source or not. I merged it in the key too. Later picked it to verify the key.
+To ensure verification and authenticity, associated data or tags are crucial. I merge this data into the key, making it easy to verify the data's origin.
 
-Lastly, base64 encoded data can be visually unappealing, often including trailing equal signs. To address this, I made the key base58 encoded, resembling a Bitcoin wallet address. This visual enhancement is pleasing to the eye. No trailing equal signs.
+Overall, my implementation simplifies the handling of nonces and associated data, thanks to the ideas and practices employed by Google Tink.
 
+On the other hand to enhance visual appeal, I transformed the key into base58 encoding, resembling a crypto wallet address. This eliminates trailing equal signs commonly found in base64 encoded data. The process relies on a RUST-based library for efficient base58 encoding. Enjoy a visually pleasing key representation without any trailing equal signs.
+
+For example:
+Same 
+BASE58 = `Vu5YayfedA8NEsaLxMKzn3HNrDWzpkiM3w8VztPLHyqL3ynQSShM3Zje`
+BASE64 = `KVx4OTJjXHgwM1xuhjMFx4ZmJceGMwXHhlZUxceGNidVBceDhXHhYQ==`
 
 ## Contribution
 
@@ -152,3 +155,10 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://github.com/mindreadio/qsafecrypto/blob/main/LICENSE)
+
+<!-- RUN TESTS -->
+<!-- python -m unittest discover tests -->
+<!-- Building wheel -->
+<!-- python setup.py sdist bdist_wheel -->
+<!-- Uploading to Pypi -->
+<!-- twine upload dist/* -->

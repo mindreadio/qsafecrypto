@@ -33,7 +33,7 @@ def encrypt(payload, key, verification_key, decode=True):
     nonce = get_random_bytes(12)
     
     ciphertext, verification_key = AES.new(key.encode(), AES.MODE_GCM, nonce=nonce).update(verification_key.encode()).encrypt_and_digest(data)
-
+    
     if decode:
         return based58.b58encode(nonce+ciphertext+verification_key).decode()
     else:

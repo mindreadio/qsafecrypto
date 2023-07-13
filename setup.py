@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="qsafecrypto",
-    version="1.0.1",
+    version="1.1.0",
     author="Md Fazlul Karim",
     author_email="fazlulkarimrocky@gmail.com",
     description="A secure and user-friendly open-source cryptography library, offering modern cryptographic APIs that are resistant to quantum attacks. Protect your data with ease and confidence using advanced quantum-resistant algorithms",
