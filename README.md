@@ -89,9 +89,20 @@ Brilliant minds in the world have developed algorithms that are deemed safe agai
 
 This is why QSafeCrypto embarks on its journey. Although we started with only one algorithm, our goal is to expand our algorithm list.
 
-## Why I built and use QSafeCrypto, and why you should use it
+## What inspired me to create Qsafecrypto and how can it benefit you?
+I want to share my experience of implementing quantum-safe encryption for my startup, Mindread.io. As a SaaS provider, I have to store user data in a secure way. I cannot rely on third-party databases that offer encryption at rest. I have to handle it myself. I was using key-value pairs in memory for fast performance. I received the data in JSON format and stored it as a single string after converting it. However, I realized that I needed to encrypt and decrypt user data. How could I do that? I searched Google for best practices.
 
-I was coding for my startup, Mindread.io. I was storing the data in key-value pairs in memory to get the fastest possible results. I received the data in JSON format and stored it as a single string after stringifying it. As a SaaS, I don't have the luxury of sending user data to other vendor-provided databases that are encrypted at rest. I have to do it myself. I felt the need to encrypt and decrypt user data. So, how could I encrypt and decrypt it? I started by searching Google for best practices.
+The most common approach is to use a symmetric key encryption algorithm, where the same key is used to encrypt and decrypt the data. However, I watched a talk by an industry expert who warned everyone to use quantum-safe encryption to store user data, especially sensitive data. Why? Because in 4-5 years, quantum computers will be able to break these encryption algorithms.
+
+I was tempted to ignore this advice. I thought, "That's not my problem right now." There's a chess principle: "Don't defend your pieces prematurely against possible threats." So, I could wait until quantum computers become a reality, and then re-encrypt everything.
+
+But then, he revealed another alarming fact. He said that sophisticated hackers are collecting encrypted data from the network and storing it in large quantities. They believe that once quantum computers can crack it, they will be able to access the data. Many data sets will not expire and will remain valuable. For example, a customer's name, gender, age, and email address. These data sets could be exposed and pose a serious risk.
+
+That made me rethink my strategy. So, what should we do? The speaker suggested, "Just start using quantum-safe encryption from now on. It's the safest option."
+
+So, I started looking into how to use quantum-safe encryption. First, I had to find which encryption algorithms are resistant to quantum attack. I found a controversial list. NIST has not yet published an official list, but researchers have identified a few that are relatively safe.
+
+<!-- Years back, I was working on my startup, Mindread.io, which uses key-value pairs in memory to store data and achieve optimal performance. I received the data in JSON format and converted it to a single string before storing it. As a SaaS provider, I could not rely on third-party databases that offer encryption at rest. I had to implement it myself. I wondered how to encrypt and decrypt user data. I searched Google for best practices.
 
 There is a simple approach: encrypt it with a key, and then decrypt it with the same key. However, I came across a talk by an industry veteran who urged everyone to use quantum-safe encryption to store user data, especially important data. Why? Because in 4-5 years, quantum computers will be able to crack these encryption methods.
 
@@ -101,7 +112,7 @@ Then, he dropped another bombshell. He said that big hackers are collecting encr
 
 Hmmm... That's pretty concerning. So, what should we do? The protagonist then said, "Just start implementing quantum-safe encryption from now on. It's the safest bet."
 
-So, I started researching how to implement quantum-safe encryption. First, I had to find which encryption algorithms are safe from quantum attack. I found a debatable list. NIST has not yet released an official list, but researchers have found a few that are relatively safe.
+So, I started researching how to implement quantum-safe encryption. First, I had to find which encryption algorithms are safe from quantum attack. I found a debatable list. NIST has not yet released an official list, but researchers have found a few that are relatively safe. -->
 
 However, I found it very challenging to use existing solutions. Extensive theoretical knowledge was required, and another popular solution, Pycryptodome, also had its complications.
 
@@ -113,10 +124,13 @@ As I am working with a team, lecturing CS theories like proper nonce and associa
 
 I had four requirements for developing it. I followed them religiously.
 
-1. The library must include two functions: one for encryption and another for decryption.
-2. A key will be necessary, stored either in the environment variable or in the Key Management System (KMS), which will be used for encryption and decryption.
-3. The library must be performant and quantum-safe.
-4. It should be designed in a way that even developers cannot easily make errors. Additionally, the encrypted keys should have an aesthetically pleasing appearance.
+1. The library should have only two functions: encrypt() and decrypt().
+
+2. The library should use a key that is either stored in an environment variable or in a KMS service.
+
+3. The library should be fast and quantum-resistant.
+
+4. The library should be foolproof and produce encrypted data that looks nice.
 
 I chose AES-GCM-256 for four reasons as well:
 
