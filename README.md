@@ -173,7 +173,7 @@ At Qsafecrypto, we envision a future where encryption is ubiquitous, ensuring se
 
 ## Contribution
 
-🧵 This package is developed by [Md Fazlul Karim](https://www.linkedin.com/in/fazlulkarimweb/), co-founder of Mindread.io. Special thanks to him for his valuable contributions to this project.
+🧵 This package is developed by [Md Fazlul Karim](https://www.linkedin.com/in/fazlulkarimweb/), ex co-founder of Mindread.io(currently not in operations). Special thanks to him for his valuable contributions to this project.
 
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue. We welcome any suggestions, bug reports, or enhancements.
 
