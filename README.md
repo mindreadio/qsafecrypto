@@ -1,4 +1,12 @@
-![Qsafecrypto Logo](https://github.com/mindreadio/qsafecrypto/blob/main/documentations/qsafecrypto_logo.png)
+<div align="center">
+  <img src="https://github.com/mindreadio/qsafecrypto/blob/main/documentations/qsafecrypto_logo.png", alt="Downloads">
+</div>
+<br />
+<div align="center">
+	<a href="https://pypi.org/project/qsafecrypto"><img src="https://img.shields.io/pypi/v/qsafecrypto?color=%23007ec6&label=pypi%20package" alt="Package version"></a>
+	<a href="https://pepy.tech/project/qsafecrypto"><img src="https://pepy.tech/badge/qsafecrypto" alt="Downloads"></a>
+	<a href="https://github.com/superduperdb/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License - MIT"></a>	
+</div>
 
 
 # QSafeCrypto
